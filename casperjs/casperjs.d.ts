@@ -3,7 +3,7 @@
 // Definitions by: Jed Hunsaker <https://github.com/jedhunsaker>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="../phantomjs/phantomjs.d.ts" />
+/// <reference path="phantomjs.d.ts" />
 
 interface CasperModule {
     create(options: CasperOptions): Casper;
@@ -191,34 +191,38 @@ interface Colorizer {
 }
 
 interface Tester {
-	assert(condition: boolean, message?: string): any;
-	assertDoesntExist(selector: string, message?: string): any;
-	assertElementCount(selctor: string, expected: number, message?: string): any;
-	assertEquals(testValue: any, expected: any, message?: string): any;
-	assertEval(fn: Function, message: string, arguments: any): any;
-	assertEvalEquals(fn: Function, expected: any, message?: string, arguments?: any): any;
-	assertExists(selector: string, message?: string): any;
-	assertFalsy(subject: any, message?: string): any;
-	assertField(inputName: string, expected: string, message?: string): any;
-	assertHttpStatus(status: number, message?: string): any;
-	assertMatch(subject: any, pattern: RegExp, message?: string): any;
-	assertNot(subject: any, message?: string): any;
-	assertNotEquals(testValue: any, expected: any, message?: string): any;
-	assertNotVisible(selector: string, message?: string): any;
-	assertRaises(fn: Function, args: any[], message?: string): any;
-	assertSelectorDoesntHaveText(selector: string, text: string, message?: string): any;
-	assertSelectorExists(selector: string, message?: string): any;
-	assertSelectorHasText(selector: string, text: string, message?: string): any;
-	assertResourceExists(testFx: Function, message?: string): any;
-	assertTextExists(expected: string, message?: string): any;
-	assertTextDoesntExist(unexpected: string, message: string): any;
-	assertTitle(expected: string, message?: string): any;
-	assertTitleMatch(pattern: RegExp, message?: string): any;
-	assertTruthy(subject: any, message?: string): any;
-	assertType(input: any, type: string, message?: string): any;
-	assertUrlMatch(pattern: string, message?: string): any;
-	assertUrlMatch(pattern: RegExp, message?: string): any;
-	assertVisible(selector: string, message?: string): any;
+    assert(condition: boolean, message?: string): any;
+    assertDoesntExist(selector: string, message?: string): any;
+    assertElementCount(selctor: string, expected: number, message?: string): any;
+    assertEquals(testValue: any, expected: any, message?: string): any;
+    assertEval(fn: Function, message: string, arguments: any): any;
+    assertEvalEquals(fn: Function, expected: any, message?: string, arguments?: any): any;
+    assertExists(selector: string, message?: string): any;
+    assertFalsy(subject: any, message?: string): any;
+    assertField(inputName: string, expected: string, message?: string): any;
+    assertFieldName(inputName: string, expected: string, message?: string, options?: any): any;
+    assertFieldCSS(cssSelector: string, expected: string, message?: string): any;
+    assertFieldXPath(xpathSelector: string, expected: string, message?: string): any;
+    assertHttpStatus(status: number, message?: string): any;
+    assertMatch(subject: any, pattern: RegExp, message?: string): any;
+    assertNot(subject: any, message?: string): any;
+    assertNotEquals(testValue: any, expected: any, message?: string): any;
+    assertNotVisible(selector: string, message?: string): any;
+    assertRaises(fn: Function, args: any[], message?: string): any;
+    assertSelectorDoesntHaveText(selector: string, text: string, message?: string): any;
+    assertSelectorExists(selector: string, message?: string): any;
+    assertSelectorHasText(selector: string, text: string, message?: string): any;
+    assertResourceExists(testFx: Function, message?: string): any;
+    assertTextExists(expected: string, message?: string): any;
+    assertTextDoesntExist(unexpected: string, message: string): any;
+    assertTitle(expected: string, message?: string): any;
+    assertTitleMatch(pattern: RegExp, message?: string): any;
+    assertTruthy(subject: any, message?: string): any;
+    assertType(input: any, type: string, message?: string): any;
+    assertInstanceOf(input: any, ctor: Function, message?: string): any;
+    assertUrlMatch(pattern: string, message?: string): any;
+    assertUrlMatch(pattern: RegExp, message?: string): any;
+    assertVisible(selector: string, message?: string): any;
 
     /* since 1.1 */
     begin(description: string, planned: number, suite: Function): any;
@@ -226,17 +230,21 @@ interface Tester {
     begin(description: string, planned: number, config: Object): any;
     begin(description: string, config: Object): any;
 
-	colorize(message: string, style: string): any;
-	comment(message: string): any;
-	done(expected?: number): any;
-	error(message: string): any;
-	fail(message: string): any;
-	formatMessage(message: string, style: string): any;
-	getFailures(): Cases;
-	getPasses(): Cases;
-	info(message: string): any;
-	pass(message: string): any;
-	renderResults(exit: boolean, status: number, save: string): any;
+    colorize(message: string, style: string): any;
+    comment(message: string): any;
+    done(expected?: number): any;
+    error(message: string): any;
+    fail(message: string): any;
+    formatMessage(message: string, style: string): any;
+    getFailures(): Cases;
+    getPasses(): Cases;
+    info(message: string): any;
+    pass(message: string): any;
+    renderResults(exit: boolean, status: number, save: string): any;
+
+    setup(fn: Function);
+    skip(nb: number, message: string);
+    tearDown(fn: Function);
 }
 
 interface Cases {
