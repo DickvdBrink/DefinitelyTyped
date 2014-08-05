@@ -313,6 +313,7 @@ interface FileSystemEntry {
     getMetadata(onSuccess?: (arg: Metadata) => void, onError?: (arg: FileError) => void): void;
     setMetadata(onSuccess?: (arg: Metadata) => void, onError?: (arg: FileError) => void, options?: any): void;
     toURL(): string;
+    toNativeURL(): string;
     remove(onSuccess?: () => void, onError?: (arg: FileError) => void): void;
     getParent(onSuccess?: (arg: DirectoryEntry) => void, onError?: (arg: FileError) => void): void;
 }
@@ -367,7 +368,7 @@ interface FileUploadResult {
 
 interface Flags {
     create: boolean;
-    exclusive: boolean;
+    exclusive?: boolean;
 }
 
 /*
